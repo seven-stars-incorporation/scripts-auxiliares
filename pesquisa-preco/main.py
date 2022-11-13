@@ -29,15 +29,8 @@ def pesquisa():
 
         print("\n"+"="*15+"\n"+produto_nome+"\n"+produto_preco+"\n")
 
-
-
-
-
     else:   
         print("Falha na requisição.\nCod de retorno: "+resp.status_code)
-
-
-
 
 
 pesquisa()
