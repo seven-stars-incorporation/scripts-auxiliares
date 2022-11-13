@@ -19,11 +19,15 @@ def pesquisa():
         
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        produto = soup.find('article')
+        produto_tag = soup.find('article')
 
-        produto_preco = produto.get_text()
+        produto_preco = produto_tag.find(class_='zonasul-zonasul-store-0-x-currencyContainer')
+        produto_preco = produto_preco.get_text()
 
-        print(produto_preco)
+        produto_nome = produto_tag.find('span')
+        produto_nome = produto_nome.get_text()
+
+        print("\n"+"="*15+"\n"+produto_nome+"\n"+produto_preco)
 
 
 
