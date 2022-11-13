@@ -13,6 +13,9 @@ def pesquisa():
     pqs = input("Produto: ")
     url = 'https://www.zonasul.com.br/'+pqs
 
-    print(url)
+    resp = requests.get(url, headers=header)
+
+    if resp.status_code == 200:
+        print("Requisção OK")
 
 pesquisa()
