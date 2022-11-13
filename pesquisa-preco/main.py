@@ -27,7 +27,7 @@ def pesquisa():
         produto_nome = produto_tag.find('span')
         produto_nome = produto_nome.get_text()
 
-        print("\n"+"="*15+"\n"+produto_nome+"\n"+produto_preco)
+        print("\n"+"="*15+"\n"+produto_nome+"\n"+produto_preco+"\n")
 
 
 
