@@ -16,14 +16,21 @@ def pesquisa():
     resp = requests.get(url, headers=header)
 
     if resp.status_code == 200:
-        print("HEEEEEEEEEEEEEEE")
-
-
-
-
-
-
         
+        soup = BeautifulSoup(resp.text, 'html.parser')
+
+        print(soup)
+
+        # produto_lista_geral = soup.find(class_='pr0 items-stretch vtex-flex-layout-0-x-stretchChildrenWidth   flex')
+
+        # print(produto_lista_geral)
+
+
+
+
+
+
+
     else:   
         print("Falha na requisição.\nCod de retorno: "+resp.status_code)
 
