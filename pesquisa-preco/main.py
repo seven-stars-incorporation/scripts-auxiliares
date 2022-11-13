@@ -19,13 +19,11 @@ def pesquisa():
         
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        print(soup)
+        produto = soup.find('article')
 
-        # produto_lista_geral = soup.find(class_='pr0 items-stretch vtex-flex-layout-0-x-stretchChildrenWidth   flex')
+        produto_preco = produto.get_text()
 
-        # print(produto_lista_geral)
-
-
+        print(produto_preco)
 
 
 
