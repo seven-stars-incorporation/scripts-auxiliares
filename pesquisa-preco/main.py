@@ -16,6 +16,19 @@ def pesquisa():
     resp = requests.get(url, headers=header)
 
     if resp.status_code == 200:
-        print("Requisção OK")
+        print("HEEEEEEEEEEEEEEE")
+
+
+
+
+
+
+        
+    else:   
+        print("Falha na requisição.\nCod de retorno: "+resp.status_code)
+
+
+
+
 
 pesquisa()
