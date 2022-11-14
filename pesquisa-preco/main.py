@@ -42,7 +42,7 @@ def pesquisa():
             print("Erro ao pegaro o preço do produto")
             exit()
 
-        print(type(produto_preco))
+        # print(type(produto_preco))
 
         print("\n"+"="*15+"\n"+produto_nome+"\n"+str(produto_preco)+"\n")
 
