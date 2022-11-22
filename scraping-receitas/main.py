@@ -13,6 +13,7 @@ def conexao(url):
                 'Chrome/51.0.2704.103 Safari/537.36'
             }
     
+    global resp
     resp = requests.get(url, headers=header)
 
     if resp.status_code == 200:
@@ -22,9 +23,15 @@ def conexao(url):
         return(print("Erro na Conexão\nStatus: "+ resp.status_code))
         exit()
 
-def minhasreceitas():
-    url = "https://www.minhasreceitas.com/"
+def minhasreceitas(pqs):
+    url = "https://www.minhasreceitas.com/search?q="+pqs
     conexao(url)
+
+    soup = BeautifulSoup(resp.text, 'html.parser')
+
+    lista_geral = soup.find('')
+
+
 
 
 minhasreceitas()
