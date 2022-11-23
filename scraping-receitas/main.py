@@ -1,8 +1,8 @@
 # Sites:
 # https://www.minhasreceitas.com/
-# https://www.receiteria.com.br/
-# https://www.receitasetemperos.com.br/
-# 
+# https://www.cozinhatecnica.com/
+
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -29,9 +29,19 @@ def minhasreceitas(pqs):
 
     soup = BeautifulSoup(resp.text, 'html.parser')
 
-    lista_geral = soup.find('')
+    lista_geral = soup.find(class_="grid-posts")
+
+    lista_links = []
+
+    for link in lista_geral.find_all('a'):
+
+        lista_links.append(link.get('href'))
+
+
+def 
 
 
 
 
-minhasreceitas()
+pqs = "alho"
+minhasreceitas(pqs)
