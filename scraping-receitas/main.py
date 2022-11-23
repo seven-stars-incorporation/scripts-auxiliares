@@ -38,10 +38,17 @@ def minhasreceitas(pqs):
         lista_links.append(link.get('href'))
 
 
-def 
+def cozinhatecnica(pqs):
+    url = "https://www.cozinhatecnica.com/"+pqs
+    conexao(url)
+    soup = BeautifulSoup(resp.text, 'html.parser')
+
+    receita_link = soup.find('article')
+
+    print(receita_link)
 
 
 
-
-pqs = "alho"
-minhasreceitas(pqs)
+pqs = "ovo"
+# minhasreceitas(pqs)
+cozinhatecnica(pqs)
