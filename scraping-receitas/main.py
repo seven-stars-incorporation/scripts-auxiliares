@@ -74,6 +74,9 @@ def globoreceita(pqs):
     receita_nome = soup.find('h1', attrs={"class":"content-head__title"}).get_text()
     print("Nome da Receita: "+receita_nome)
 
+    receita_categoria = soup.find('a', attrs={"class":"entities__list-itemLink"}).get_text()
+    print("Categoria: "+ receita_categoria)
+
     print("\nIngredientes: ")
     receita_ingredientes = soup.find('ul', attrs={"class":"content-unordered-list"})
 
@@ -114,19 +117,24 @@ def cybercook(pqs):
     soup = BeautifulSoup(resp.text, 'html.parser')
 
     receita_nome = soup.find('h1').string
-    receita_ingrediente = soup.find('h2')
-
     print("Nome da Receita: "+receita_nome)
-    print("Ingredientes:\n")
 
+    receita_categoria = soup.find('div', attrs={"class":"flex flex-wrap undefined"}).get_text()
+    print("Categorias: "+receita_categoria)
+
+    receita_ingrediente = soup.find('h2')
+    print("Ingredientes:\n")
     for ingredientes in receita_ingrediente.find_all_next('label'):
         print(">> "+ingredientes.get_text())
 
-    receita_preparo = soup.find('ul', attrs={"class":"custom-counter"})
 
+    receita_preparo = soup.find('ul', attrs={"class":"custom-counter"})
     print("\nModo de preparo: ")
     for preparo in receita_preparo:
         print(preparo.get_text())
+
+
+# _______________________________________________________________________
 
 pqs = input("Pesquisa: ")
 print("Pesquisando...\n")
