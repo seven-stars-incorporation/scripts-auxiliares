@@ -1,12 +1,9 @@
 Só pra eu nn esquecer.
 
-Retirar o site https://www.cozinhatecnica.com/ => cozinhatecnica(pqs) => Linha 44
-
-
-minhasreceitas():
-Criar lista de links
-Acessar cada link, se possivel com thread para ir mais rápido.
-Cada acesso de página, salva a receita
+>> Continuar no minhasreceitas(). Buscar por possiveis padrões na URL, parametros que fixem o retorno da busca
+>> Fazer pesquisa por mais sites
+>> Implementação de threads
+>> Organização e limpeza do código
 
 -----------------------
 > Colocar mais sites
