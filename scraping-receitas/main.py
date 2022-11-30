@@ -6,9 +6,10 @@
 
 import requests
 from bs4 import BeautifulSoup
+from termcolor import colored
 
 def linha():
-    print(15*"=-")
+    print(15*"=-"+"\n")
 
 def conexao(url):        
     header = {
@@ -52,7 +53,7 @@ def globoreceita(pqs):
     conexao(url)
     soup = BeautifulSoup(resp.text, 'html.parser')
 
-    print("\nPesquisando em Receitas da Globo")
+    print(colored("Receita encontrada!", 'green'))
 
     receita_geral = soup.find(class_='widget widget--card widget--info')
     receita_link_tag = receita_geral.find('a')
@@ -72,7 +73,7 @@ def globoreceita(pqs):
     soup = BeautifulSoup(resp.text, 'html.parser')
 
     receita_nome = soup.find('h1', attrs={"class":"content-head__title"}).get_text()
-    print("Nome da Receita: "+receita_nome)
+    print(colored("Nome da Receita: ", 'yellow')+receita_nome)
 
     receita_categoria = soup.find('a', attrs={"class":"entities__list-itemLink"}).get_text()
     print("Categoria: "+ receita_categoria)
@@ -106,7 +107,7 @@ def cybercook(pqs):
 
     soup = BeautifulSoup(resp.text, 'html.parser')
 
-    print("\nPesquisando em Cyber Cook")
+    print(colored("Receita encontrada!", 'green'))
 
     link_receita = soup.find(class_='pos-relative border-card-half-2 grid-sm-12 font-serif grid-lg-4 mb5 card--half-2-image')
     link_receita = link_receita.find('a')
@@ -117,7 +118,7 @@ def cybercook(pqs):
     soup = BeautifulSoup(resp.text, 'html.parser')
 
     receita_nome = soup.find('h1').string
-    print("Nome da Receita: "+receita_nome)
+    print(colored("Nome da Receita: ", 'yellow')+receita_nome)
 
     receita_categoria = soup.find('div', attrs={"class":"flex flex-wrap undefined"}).get_text()
     print("Categorias: "+receita_categoria)
@@ -136,8 +137,22 @@ def cybercook(pqs):
 
 # _______________________________________________________________________
 
+banner = '''
+   _____ ________      ________ _   _      _____ _______       _____   _____ 
+  / ____|  ____\ \    / /  ____| \ | |    / ____|__   __|/\   |  __ \ / ____|
+ | (___ | |__   \ \  / /| |__  |  \| |   | (___    | |  /  \  | |__) | (___  
+  \___ \|  __|   \ \/ / |  __| | . ` |    \___ \   | | / /\ \ |  _  / \___ \ 
+  ____) | |____   \  /  | |____| |\  |    ____) |  | |/ ____ \| | \ \ ____) |
+ |_____/|______|   \/   |______|_| \_|   |_____/   |_/_/    \_\_|  \_\_____/ 
+\n
+'''
+info = '''
+                [+] Pesquisa semi-automática para demonstração
+'''
+
+print(colored(banner, 'blue'), colored(info, 'yellow'))
 pqs = input("Pesquisa: ")
-print("Pesquisando...\n")
+print("\nPesquisando...\n")
 pqs = pqs.replace(" ", "%20")
 pqs = pqs.replace("ç" or "Ç", "%C3%A7")
 pqs = pqs.replace("á" or "Á", "%C3%A1")
